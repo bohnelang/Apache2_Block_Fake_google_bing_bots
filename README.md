@@ -8,7 +8,7 @@ but there are not from google or bing.
 A lot of sites opens content for google and bin bots to be visible in net. 
 But fake bots use this to request your content that should be index but not accessible.
 
-Run the gen.php from time to time (cron) to keep you ruleset up-to-date. 
+Run the gen.php from time to time (cron) to keep you ruleset up-to-date. Restart apache2 with "apachectl graceful"
 
 This ruleset is from end of 2022 and do not use it - please run the php script to generate an up-to-date list:
 
