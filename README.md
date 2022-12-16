@@ -5,7 +5,7 @@ A short script / set of Rewrite rules for Apache 2.4 and higher to block fake go
 We noticed a lot of request where the usere agent suggest to be a google bot or bing bot 
 but there are not from google or bing.
 
-A lot of sites opens content for google and bin bots to be visible in net. 
+A lot of sites opens content for google and bing bots to be visible in net. 
 But fake bots use this to request your content that should be index but not accessible.
 
 Run the gen.php from time to time (cron) to keep you ruleset up-to-date. Restart apache2 with "apachectl graceful"
