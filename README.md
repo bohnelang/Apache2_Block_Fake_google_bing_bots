@@ -14,7 +14,7 @@ This ruleset is from end of 2022 and do not use it - please run the php script t
 
 
 
-'''
+```
 RewriteCond %{HTTP_USER_AGENT} ^(.*)[G|g]oogle(.*)$
 RewriteCond expr "! -R '34.100.182.96/28'"
 RewriteCond expr "! -R '34.101.50.144/28'"
@@ -165,4 +165,4 @@ RewriteCond expr "! -R '40.77.139.0/25'"
 RewriteCond expr "! -R '20.74.197.0/28'"
 RewriteRule ^ - [R=403,L]
 
-'''
+```
