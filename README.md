@@ -1,4 +1,4 @@
-# A set to Apache2 Rewrite rules to block fake google and bin bots.
+# A set of Apache2 Rewrite rules to block fake google and bin bots.
 
 A short script / set of Rewrite rules for Apache 2.4 and higher to block fake goole and bing bots.
 
