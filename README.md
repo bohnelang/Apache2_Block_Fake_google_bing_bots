@@ -35,7 +35,7 @@ foreach($x as $regex => $url){
 fclose($fp);
 ?>
 
-``
+```
 
 This will generate a list like this:
 
