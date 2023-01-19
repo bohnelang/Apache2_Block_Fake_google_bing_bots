@@ -16,8 +16,8 @@ This ruleset is from end of 2022 and do not use it - please run the php script t
 <?php
 
 $x= array(
-        "[G|g]oogle"    => "https://developers.google.com/search/apis/ipranges/googlebot.json",
-        "[B|b]ing"      => "https://www.bing.com/toolbox/bingbot.json"
+        "Google"        => "https://developers.google.com/search/apis/ipranges/googlebot.json",
+        "Bing"  => "https://www.bing.com/toolbox/bingbot.json"
         );
 
 $fp=fopen("blockfakebots.conf","w");
@@ -26,7 +26,7 @@ foreach($x as $regex => $url){
 
         if( empty($x = json_decode(file_get_contents($url)))) die("Cannot load IP-List for $url");
 
-        fprintf($fp,"RewriteCond %%{HTTP_USER_AGENT} ^(.*)%s(.*)$ \n",$regex);
+        fprintf($fp,"RewriteCond %%{HTTP_USER_AGENT} ^(.*)%s(.*)$ [NC] \n",$regex);
         foreach($x->prefixes as $val){ if(isset($val->ipv4Prefix)){ fprintf($fp,"RewriteCond expr \"! -R '%s'\" \n",$val->ipv4Prefix); } }
         #foreach($x->prefixes as $val){ if(isset($val->ipv4Prefix)){ fprintf($fp,"RewriteCond expr \"! %%{REMOTE_ADDR} -ipmatch '%s'\"\n",$val->ipv4Prefix); } }
         fprintf($fp,"RewriteRule ^ - [R=403,L] \n\n\n");
@@ -40,7 +40,7 @@ fclose($fp);
 This will generate a list like this:
 
 ```
-RewriteCond %{HTTP_USER_AGENT} ^(.*)[G|g]oogle(.*)$
+RewriteCond %{HTTP_USER_AGENT} ^(.*)Google(.*)$ [NC]
 RewriteCond expr "! -R '34.100.182.96/28'"
 RewriteCond expr "! -R '34.101.50.144/28'"
 RewriteCond expr "! -R '34.118.254.0/28'"
@@ -127,6 +127,7 @@ RewriteCond expr "! -R '66.249.73.32/27'"
 RewriteCond expr "! -R '66.249.73.64/27'"
 RewriteCond expr "! -R '66.249.73.96/27'"
 RewriteCond expr "! -R '66.249.74.0/27'"
+RewriteCond expr "! -R '66.249.74.128/27'"
 RewriteCond expr "! -R '66.249.74.32/27'"
 RewriteCond expr "! -R '66.249.74.64/27'"
 RewriteCond expr "! -R '66.249.74.96/27'"
@@ -162,7 +163,7 @@ RewriteCond expr "! -R '66.249.79.96/27'"
 RewriteRule ^ - [R=403,L]
 
 
-RewriteCond %{HTTP_USER_AGENT} ^(.*)[B|b]ing(.*)$
+RewriteCond %{HTTP_USER_AGENT} ^(.*)Bing(.*)$ [NC]
 RewriteCond expr "! -R '157.55.39.0/24'"
 RewriteCond expr "! -R '207.46.13.0/24'"
 RewriteCond expr "! -R '40.77.167.0/24'"
