@@ -16,8 +16,8 @@ This ruleset is from end of 2022 and do not use it - please run the php script t
 <?php
 
 $x= array(
-        "Google"        => "https://developers.google.com/search/apis/ipranges/googlebot.json",
-        "Bing"  => "https://www.bing.com/toolbox/bingbot.json"
+        "Googlebot"        => "https://developers.google.com/search/apis/ipranges/googlebot.json",
+        "Bingbot"  => "https://www.bing.com/toolbox/bingbot.json"
         );
 
 $fp=fopen("blockfakebots.conf","w");
@@ -40,7 +40,7 @@ fclose($fp);
 This will generate a list like this:
 
 ```
-RewriteCond %{HTTP_USER_AGENT} ^(.*)Google(.*)$ [NC]
+RewriteCond %{HTTP_USER_AGENT} ^(.*)Googlebot(.*)$ [NC]
 RewriteCond expr "! -R '34.100.182.96/28'"
 RewriteCond expr "! -R '34.101.50.144/28'"
 RewriteCond expr "! -R '34.118.254.0/28'"
@@ -163,7 +163,7 @@ RewriteCond expr "! -R '66.249.79.96/27'"
 RewriteRule ^ - [R=403,L]
 
 
-RewriteCond %{HTTP_USER_AGENT} ^(.*)Bing(.*)$ [NC]
+RewriteCond %{HTTP_USER_AGENT} ^(.*)Bingbot(.*)$ [NC]
 RewriteCond expr "! -R '157.55.39.0/24'"
 RewriteCond expr "! -R '207.46.13.0/24'"
 RewriteCond expr "! -R '40.77.167.0/24'"
