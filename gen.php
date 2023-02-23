@@ -1,8 +1,8 @@
 <?php
 
 $x= array(
-        "Google"        => "https://developers.google.com/search/apis/ipranges/googlebot.json",
-        "Bing"  => "https://www.bing.com/toolbox/bingbot.json"
+        "Googlebot"        => "https://developers.google.com/search/apis/ipranges/googlebot.json",
+        "Bingbot"  => "https://www.bing.com/toolbox/bingbot.json"
         );
 
 $fp=fopen("blockfakebots.conf","w");
